@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>List Flights</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    li {
+      background-color: #fff;
+      margin-bottom: 15px;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .actions {
+      margin-top: 10px;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+      padding: 8px 14px;
+      margin-right: 10px;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .update {
+      background-color: #007bff;
+    }
+
+    .delete {
+      background-color: #dc3545;
+    }
+
+    a:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <h1>All Flights</h1>
+  <ul>
+    {{#each flights}}
+      <li>
+        <strong>{{this.flightNumber}}</strong><br>
+        {{this.departure}} → {{this.arrival}}<br>
+        Departure: {{this.departureDate}} | Return: {{this.returnDate}}<br>
+        
+
+        <div class="actions">
+          <a href="/api/aviation/update/{{this._id}}" class="update">Update</a>
+          <a href="/api/aviation/delete/{{this._id}}" class="delete">Delete</a>
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+</body>
+</html>

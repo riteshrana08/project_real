@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>List Bookings</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    li {
+      background-color: #fff;
+      margin-bottom: 15px;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .cancel {
+      display: inline-block;
+      margin-top: 10px;
+      background-color: #dc3545;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .cancel:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+<body>
+  <h1>All Bookings</h1>
+  <ul>
+    {{#each bookings}}
+      <li>
+        <strong>{{this.passengerName}}</strong> ({{this.email}}) <br/>
+        Flight: {{this.flight.departure}} → {{this.flight.arrival}} <br/>
+        Departure: {{this.flight.departureDate}} | Return: {{this.flight.returnDate}} <br/>
+        Status: <strong>{{this.status}}</strong><br/>
+
+        {{#ifCond this.status "==" "Confirmed"}}
+          <a href="/api/bookings/cancel/{{this._id}}" class="cancel">Cancel Booking</a>
+        {{/ifCond}}
+      </li>
+    {{/each}}
+  </ul>
+</body>
+</html>

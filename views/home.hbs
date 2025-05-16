@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home Page</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f6f8;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #2c3e50;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 36px;
+      color: #ffffff;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+    }
+
+    .main-content {
+      flex: 1;
+      max-width: 720px;
+      margin: 60px auto;
+      padding: 40px 30px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+
+    .main-content p {
+      font-size: 20px;
+      margin-bottom: 40px;
+      color: #555;
+      font-weight: 500;
+    }
+
+    .btn-row {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      flex: 1 1 200px;
+      max-width: 220px;
+      padding: 14px 0;
+      font-size: 18px;
+      background: linear-gradient(135deg, #4a90e2, #1a73e8);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 6px 12px rgba(26, 115, 232, 0.4);
+      transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+      font-weight: 600;
+      user-select: none;
+    }
+
+    .btn:hover,
+    .btn:focus {
+      background: linear-gradient(135deg, #155ab6, #0f3d78);
+      box-shadow: 0 8px 16px rgba(15, 61, 120, 0.6);
+      transform: translateY(-3px);
+      outline: none;
+    }
+
+    footer {
+      padding: 24px 20px;
+      background-color: #2c3e50;
+      color: #ccc;
+      text-align: center;
+      font-size: 14px;
+      user-select: none;
+      box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 28px;
+      }
+
+      .main-content p {
+        font-size: 18px;
+        margin-bottom: 32px;
+      }
+
+      .btn {
+        font-size: 16px;
+      }
+
+      .btn-row {
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Welcome to the Aviation Booking System</h1>
+  </header>
+
+  <div class="main-content">
+    <p>Plan your journey effortlessly — view flights, manage schedules, and book your next adventure with ease.</p>
+
+    <div class="btn-row">
+      <a href="/api/aviation/create" class="btn">Add Flight</a>
+      <a href="/api/aviation/list" class="btn">Show All Flights</a>
+    </div>
+
+    <div class="btn-row">
+      <a href="/api/bookings/create" class="btn">Book a Flight</a>
+      <a href="/api/bookings/list" class="btn">View Your Bookings</a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 Aviation Booking System. All rights reserved.
+  </footer>
+
+</body>
+</html>
+
